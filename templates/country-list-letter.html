@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{letter_name}}</title>
+</head>
+<body>
+    <h1>{{letter_name}}</h1>
+    {%for letter in letters%}
+        <a href="/country-list-letter/{{letter}}">{{ letter }}</a>
+    {%endfor%}
+
+    <ol>
+        {%for country in countries%}
+            <li><a href="/country-page/{{country}}">{{ country }}</a></li>
+        {%endfor%}
+    </ol>
+
+    <h1>
+    <a href="/country-list/">НАЗАД К СПИСКУ СТРАН</a>
+    </h1>
+
+</body>
+</html>
