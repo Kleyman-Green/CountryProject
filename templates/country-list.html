@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>СПИСОК СТРАН</title>
+</head>
+<body>
+    <h1>
+    <a href="/">Главная страница</a>
+    </h1>
+    <ol>
+        {%for country in countries%}
+            <li><a href="/country-page/{{country}}">{{ country }}</a></li>
+        {%endfor%}
+    </ol>
+</body>
+</html>
