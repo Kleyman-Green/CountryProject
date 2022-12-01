@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import json
 from MainApp.models import Country
-
+from string import ascii_uppercase
 
 # CountryJson = list(json.load(open('country-by-languages.json')))
 # countrylist = [i.get("country") for i in CountryJson]
@@ -21,9 +21,10 @@ def language_list(request):
     context = {"languages": sorted(set(tmp))}
     return render(request, "language-list.html", context)
 
+def country-list-letter
 def country_page(request, country_name:str):
     context = {'country': country_name, "languages": [i.languages for i in Country.objects.filter(name= country_name)][0].split("_")}
-    print(context)
+    context["letters"]= list(ascii_uppercase)
     return render(request, "country-page.html", context)
 
 def language_page(request, language_name:str):
