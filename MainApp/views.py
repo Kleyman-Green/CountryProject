@@ -12,6 +12,7 @@ from string import ascii_uppercase
 
 def country_list(request):
     context = {"countries": sorted([i.name for i in Country.objects.all()])}
+    context["letters"]= list(ascii_uppercase)
     return render(request, "country-list.html", context)
 
 def language_list(request):
@@ -21,10 +22,14 @@ def language_list(request):
     context = {"languages": sorted(set(tmp))}
     return render(request, "language-list.html", context)
 
-def country-list-letter
+def country_list_letter(request, letter_name):
+    context = {"letter_name": letter_name, "countries": [i.name for i in Country.objects.filter(name__startswith=letter_name)]}
+    context["letters"] = list(ascii_uppercase)
+    return render(request, "country-list-letter.html", context)
+
 def country_page(request, country_name:str):
     context = {'country': country_name, "languages": [i.languages for i in Country.objects.filter(name= country_name)][0].split("_")}
-    context["letters"]= list(ascii_uppercase)
+
     return render(request, "country-page.html", context)
 
 def language_page(request, language_name:str):

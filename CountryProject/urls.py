@@ -10,4 +10,5 @@ urlpatterns = [
     path("language-list/", language_list),
     path('country-page/<country_name>', country_page),
     path('language-page/<language_name>', language_page),
+    path('country-list-letter/<letter_name>', country_list_letter),
 ]
