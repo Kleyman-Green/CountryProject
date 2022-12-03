@@ -5,6 +5,11 @@
     <title>СПИСОК ЯЗЫКОВ</title>
 </head>
 <body>
+    <h1>Языки</h1>
+
+        {%for letter in letters%}
+            <a href="/languages-list-letter/{{letter}}">{{ letter }}</a>
+        {%endfor%}
 
     <ol>
         {%for language in languages%}

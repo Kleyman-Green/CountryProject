@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{letter_name}}</title>
+</head>
+<body>
+    <h1>Языки на букву: {{letter_name}}</h1>
+
+    {%for letter in letters%}
+        <a href="/languages-list-letter/{{letter}}">{{ letter }}</a>
+    {%endfor%}
+
+    <ol>
+        {%for language in languages%}
+            <li><a href="/language-page/{{language}}">{{ language }}</a></li>
+        {%endfor%}
+    </ol>
+
+
+    <h1>
+    <a href="/language-list/">НАЗАД К СПИСКУ ЯЗЫКОВ</a>
+    </h1>
+
+</body>
+</html>

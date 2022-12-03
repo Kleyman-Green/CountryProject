@@ -5,6 +5,8 @@
     <title>{{country}}</title>
 </head>
 <body>
+    <h1>Языки в стране {{country}}</h1>
+
     {% for language in languages%}
         <ul><li><a href="/language-page/{{language}}"> {{language}} </a></li></ul>
     {%endfor%}

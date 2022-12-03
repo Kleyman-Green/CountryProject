@@ -20,12 +20,21 @@ def language_list(request):
     for country in Country.objects.all():
         [tmp.append(i) for i in country.languages.split("_")]
     context = {"languages": sorted(set(tmp))}
+    context["letters"] = list(ascii_uppercase)
     return render(request, "language-list.html", context)
 
 def country_list_letter(request, letter_name):
     context = {"letter_name": letter_name, "countries": [i.name for i in Country.objects.filter(name__startswith=letter_name)]}
     context["letters"] = list(ascii_uppercase)
     return render(request, "country-list-letter.html", context)
+
+def language_list_letter(request, letter_name):
+    tmp = []
+    for country in Country.objects.all():
+        [tmp.append(i) for i in country.languages.split("_")]
+    context = {'letter_name': letter_name, "languages": [i for i  in sorted(set(tmp)) if i[0]==letter_name]}
+    context["letters"] = list(ascii_uppercase)
+    return render(request, "languages-list-letter.html", context)
 
 def country_page(request, country_name:str):
     context = {'country': country_name, "languages": [i.languages for i in Country.objects.filter(name= country_name)][0].split("_")}
