@@ -2,6 +2,8 @@ from django.shortcuts import render
 import json
 from MainApp.models import Country
 from string import ascii_uppercase
+from django.core.paginator import Paginator
+
 
 # CountryJson = list(json.load(open('country-by-languages.json')))
 # countrylist = [i.get("country") for i in CountryJson]
@@ -13,6 +15,11 @@ from string import ascii_uppercase
 def country_list(request):
     context = {"countries": sorted([i.name for i in Country.objects.all()])}
     context["letters"]= list(ascii_uppercase)
+    contact_list = Country.objects.all()
+    paginator = Paginator(contact_list, 25)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context['page_obj'] = page_obj
     return render(request, "country-list.html", context)
 
 def language_list(request):
